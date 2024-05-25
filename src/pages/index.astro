@@ -5,20 +5,17 @@ import CommonContainer from '@/components/common/container.astro';
 import CommonContentListItem from '@/components/common/content-list-item.vue';
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from 'astro:content';
-import Button from '@/components/ui/button.astro';
 import Link from '@/components/ui/link.astro';
-
-import { links } from '@/info.ts'
 
 const latestNews = (await getCollection("nyheter"))
   .filter((post: any) => post.data.published)
   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3) as CollectionEntry<"nyheter">[];
 
-const latestVideos = (await getCollection("videos"))
-  .filter((post: any) => post.data.published)
-  .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 3) as CollectionEntry<"videos">[];
+// const latestVideos = (await getCollection("videos"))
+//   .filter((post: any) => post.data.published)
+//   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+//   .slice(0, 3) as CollectionEntry<"videos">[];
 
 ---
 
@@ -38,7 +35,7 @@ const latestVideos = (await getCollection("videos"))
             <a class="underline" href="/projects">Visa alla</a>
           </div>
           <ul>
-            {latestNews.map((project, index, arr) => 
+            {latestNews.map((project, index) => 
               <li class="border-2 border-neutral-200 dark:border-purple-800 rounded-lg my-2 bg-neutral-100 dark:bg-neutral-900 stagger-animation" style={{'--i': index}}>
                 <CommonContentListItem result={project} loading="lazy" />
               </li>
@@ -84,13 +81,13 @@ const latestVideos = (await getCollection("videos"))
         <h2 class="text-3xl">Senaste videos</h2>
         <a class="underline" href="/projects">Visa alla</a>
       </div>
-      <ul class="mt-8">
+      <!-- <ul class="mt-8">
         {latestVideos.map((project, index, arr) => 
           <li class:list={{'mb-0': index === arr.length - 1, 'border-b border-neutral-200 dark:border-neutral-800': index !== arr.length - 1}} class="my-8 pb-8">
             <CommonContentListItem result={project} loading="lazy" />
           </li>
         )}
-      </ul>
+      </ul> -->
     </div>
 
     <!-- Discord Community Server -->

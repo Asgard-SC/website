@@ -8,7 +8,7 @@
 
   const props = defineProps({
     data: {
-      type: Array as PropType<(CollectionEntry<"nyheter"> | CollectionEntry<"videos">)[]>,
+      type: Array,
       required: true,
     }
   });

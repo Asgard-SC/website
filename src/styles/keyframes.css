@@ -1,0 +1,43 @@
+@keyframes slide-up {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes type-writing {
+  from {
+    display: none;
+  }
+  to {
+    display: inline;
+  }
+}
+
+@keyframes type-caret {
+  from, to {
+    /* border-width: 10px; */
+    border-color: transparent;
+    /* border-color: red; */
+  }
+  50% {
+    /* border-width: 10px; */
+    border-color: currentColor;
+  }
+}
+
+@keyframes type-show-caret {
+  from {
+    /* border-width: 10px; */
+    border-color: currentColor;
+  }
+  to {
+    /* border-width: 10px; */
+    border-color: transparent;
+    /* border-color: red; */
+  }
+}

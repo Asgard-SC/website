@@ -1,0 +1,113 @@
+---
+import Layout from '@/layouts/base.astro';
+import CommonTyping from '@/components/common/typing.astro';
+import CommonContainer from '@/components/common/container.astro';
+import CommonContentListItem from '@/components/common/content-list-item.vue';
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from 'astro:content';
+import Button from '@/components/ui/button.astro';
+import Link from '@/components/ui/link.astro';
+
+import { links } from '@/info.ts'
+
+const latestNews = (await getCollection("nyheter"))
+  .filter((post: any) => post.data.published)
+  .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3) as CollectionEntry<"nyheter">[];
+
+const latestVideos = (await getCollection("videos"))
+  .filter((post: any) => post.data.published)
+  .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3) as CollectionEntry<"videos">[];
+
+---
+
+<Layout title="Asgard: Home page" description="Portfolio website for various projects & employment history" size="full">
+  <div>
+    <CommonContainer size="xl" class="grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 h-screen home-">
+      <div class="row-start-1 row-end-1 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col justify-center">
+        <div class="h-64 px-8 text-white">
+          <CommonTyping class="w-full h-fit my-8 text-6xl lg:text-8xl font-light" passive={false} duration={80} tag="h1" string="Välkommen" />
+          <CommonTyping class="w-full h-fit flex flex-wrap text-lg" delay={40} duration={20} tag="p" string="Bla balbalblalb alblblbllbblalbalalblblalblbblablbablaba" />
+        </div>
+      </div>
+      <div class="row-start-2 row-end-2 lg:row-start-1 lg:row-end-1 col-start-1 col-end-1 lg:col-start-2 lg:col-end-2 flex flex-col justify-start lg:justify-center">
+        <div class="ml-8 mt-8">
+          <div class="flex justify-between items-center stagger-animation text-white" style={{'--i': 0}}>
+            <h2 class="text-3xl">Senaste nyheter</h2>
+            <a class="underline" href="/projects">Visa alla</a>
+          </div>
+          <ul>
+            {latestNews.map((project, index, arr) => 
+              <li class="border-2 border-neutral-200 dark:border-purple-800 rounded-lg my-2 bg-neutral-100 dark:bg-neutral-900 stagger-animation" style={{'--i': index}}>
+                <CommonContentListItem result={project} loading="lazy" />
+              </li>
+            )}
+              <li class="flex justify-center my-2 stagger-animation" style={{'--i': latestNews.length + 1}}>
+                <Link href={"#"} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800">Gå med här</Link>
+                <Link href={"#"} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800">Om oss</Link>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </CommonContainer>
+  </div>
+  <CommonContainer size="sm" class="mb-16 gap-y-[96px]">
+    <!-- Timeline -->
+    <!-- <div>
+      <ul class="w-full mt-8 mb-32">
+      {timeline.map((event, index, arr) => 
+        <li class="grid grid-cols-[5%_95%] md:grid-cols-[48%_4%_48%] grid-rows-1">
+          <a href={event.href} class:list={{
+            'md:col-[1] mt-0': index % 2 === 0,
+            'md:col-[3]': index % 2 === 1,
+            'mb-0': index === arr.length - 1,
+          }} class="block my-8 col-[2] p-4 border border-neutral-200 dark:border-neutral-900 rounded-lg shadow-xl">
+            <h2 class="text-xl">{event.title}</h2>
+            <p class="">{event.body}</p>
+          </a>
+          <div class="col-[1] md:col-[2] row-[1] h-full flex justify-center relative">
+            <div
+             class:list={{'rounded-t-full mt-4': index === 0, 'rounded-b-full -mt-4': index === arr.length - 1}} class="w-2 h-full bg-neutral-300 dark:bg-neutral-900"
+            />
+          </div>
+        </li>
+      )}
+      </ul>
+    </div> -->
+
+    <!-- About me -->
+
+    <!-- Latest projects -->
+    <div>
+      <div class="flex justify-between items-center">
+        <h2 class="text-3xl">Senaste videos</h2>
+        <a class="underline" href="/projects">Visa alla</a>
+      </div>
+      <ul class="mt-8">
+        {latestVideos.map((project, index, arr) => 
+          <li class:list={{'mb-0': index === arr.length - 1, 'border-b border-neutral-200 dark:border-neutral-800': index !== arr.length - 1}} class="my-8 pb-8">
+            <CommonContentListItem result={project} loading="lazy" />
+          </li>
+        )}
+      </ul>
+    </div>
+
+    <!-- Discord Community Server -->
+    <div>
+      
+    </div>
+  </CommonContainer>
+</Layout>
+
+<style is:global>
+  body > main {
+    animation: unset !important;
+    padding: 0px 0px 0px 0px !important;
+  }
+
+  body > main > div:first-child {
+    background-image: url('/images/banner.webp');
+    background-position: center;
+  }
+</style>

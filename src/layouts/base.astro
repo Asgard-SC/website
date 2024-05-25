@@ -1,0 +1,74 @@
+---
+import CommonHead from '@/components/common/head.astro';
+import NavigationHeader from '@/components/navigation/header.astro';
+import Container from '@/components/common/container.astro';
+import Link from '@/components/ui/link.astro'
+
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "full",
+}
+
+const { title, description, image, size = "lg" } = Astro.props;
+const { pathname } = Astro.url;
+const links = [
+  {
+    href: '/',
+    text: 'Home'
+  },
+  {
+    href: '/projects',
+    text: 'Projects'
+  },
+  {
+    href: '/work',
+    text: 'Work'
+  },
+];
+const subpath = pathname.match(/[^/]+/g)
+---
+
+<!doctype html>
+<html lang="en" class="bg-neutral-100 dark:bg-neutral-950">
+	<head>
+		<CommonHead title={title} description={description} image={image} />
+	</head>
+	<body class="min-h-screen h-full">
+		<NavigationHeader links={links} />
+		<Container size={size} tag="main" class="min-h-screen h-full">
+			<slot />
+			<div id="navigation-drawer" class="lg:hidden rounded-r-lg fixed p-4 top-0 left-0 z-20 w-64 h-full transition-all duration-300 transform -translate-x-full bg-neutral-100 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-900 shadow-lg">
+				<div class="flex flex-col justify-between h-full">
+					<ul>
+						{links.map((link) => 
+							<li class="border-b border-neutral-200 dark:border-neutral-800">
+								<Link
+									class="text-neutral-700 text-center dark:text-neutral-300 my-6 text-lg tracking-wider" 
+									class:list={[pathname === link.href || `/${subpath?.[0]}` === link.href ? 'bg-neutral-200 dark:bg-neutral-800' : '']}
+									href={link.href}
+								>
+									{link.text}
+								</Link>
+							</li>
+						)}
+					</ul>
+				</div>
+			</div>
+			<div id="search-model-container"></div>
+		</Container>
+		<footer class="border-t dark:border-neutral-800 h-64">
+			<Container size="lg" class="flex items-center justify-between h-full text-neutral-600 dark:text-neutral-400">
+				<div class="text-sm">
+					<p>Updated @ {new Date().toLocaleDateString()}</p>
+				</div>
+				<div>
+					<p class="text-lg">Contacts</p>
+					<ol class="pl-6 list-disc">
+					</ol>
+				</div>
+			</Container>
+		</footer>
+	</body>
+</html>

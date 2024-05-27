@@ -6,6 +6,7 @@ import CommonContentListItem from '@/components/common/content-list-item.vue';
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from 'astro:content';
 import Link from '@/components/ui/link.astro';
+import { links } from '@/info';
 
 const latestNews = (await getCollection("nyheter"))
   .filter((post: any) => post.data.published)
@@ -17,11 +18,27 @@ const latestNews = (await getCollection("nyheter"))
 //   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
 //   .slice(0, 3) as CollectionEntry<"videos">[];
 
+const pictureArticles = [
+  {
+    src: '/images/banner.webp',
+    title: 'Bla bla bla Bla bla bla Bla bla bla',
+  },
+  {
+    src: '/images/banner.webp',
+    title: 'Bla bla bla Bla bla bla Bla bla bla',
+  },
+  {
+    src: '/images/banner.webp',
+    title: 'Bla bla bla Bla bla bla Bla bla bla',
+  }
+];
+
+const discord = links.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
 ---
 
 <Layout title="Asgard: Home page" description="Portfolio website for various projects & employment history" size="full">
   <div>
-    <CommonContainer size="xl" class="grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 h-screen home-">
+    <CommonContainer size="xl" class="grid grid-rows-[47%_47%_6%] grid-cols-1 lg:grid-rows-[94%_6%] lg:grid-cols-2 h-screen">
       <div class="row-start-1 row-end-1 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col justify-center">
         <div class="h-64 px-8 text-white">
           <CommonTyping class="w-full h-fit my-8 text-6xl lg:text-8xl font-light" passive={false} duration={80} tag="h1" string="Välkommen" />
@@ -41,39 +58,37 @@ const latestNews = (await getCollection("nyheter"))
               </li>
             )}
               <li class="flex justify-center my-2 stagger-animation" style={{'--i': latestNews.length + 1}}>
-                <Link href={"#"} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800">Gå med här</Link>
-                <Link href={"#"} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800">Om oss</Link>
+                <Link href={discord.url} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Gå med här</Link>
+                <Link href="/about-us" class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Om oss</Link>
               </li>
           </ul>
         </div>
       </div>
+      <p class="row-start-3 row-end-3 col-start-1 col-end-1 lg:row-start-2 lg:row-end-2 lg:col-span-2 text-center text-neutral-400">
+        Since we are a Swedish organization all the content of this website is also in Swedish. If you are an English speaker and wish to reach out to us with questions you can join our <a class="underline" href={discord.url}>Discord here</a>
+      </p>
     </CommonContainer>
   </div>
-  <CommonContainer size="sm" class="mb-16 gap-y-[96px]">
-    <!-- Timeline -->
-    <!-- <div>
+  <CommonContainer size="2xl" class="mb-16 gap-y-[96px]">
+
+    <!-- Picture articles -->
+
+    <div>
       <ul class="w-full mt-8 mb-32">
-      {timeline.map((event, index, arr) => 
-        <li class="grid grid-cols-[5%_95%] md:grid-cols-[48%_4%_48%] grid-rows-1">
-          <a href={event.href} class:list={{
-            'md:col-[1] mt-0': index % 2 === 0,
-            'md:col-[3]': index % 2 === 1,
-            'mb-0': index === arr.length - 1,
-          }} class="block my-8 col-[2] p-4 border border-neutral-200 dark:border-neutral-900 rounded-lg shadow-xl">
-            <h2 class="text-xl">{event.title}</h2>
-            <p class="">{event.body}</p>
-          </a>
-          <div class="col-[1] md:col-[2] row-[1] h-full flex justify-center relative">
-            <div
-             class:list={{'rounded-t-full mt-4': index === 0, 'rounded-b-full -mt-4': index === arr.length - 1}} class="w-2 h-full bg-neutral-300 dark:bg-neutral-900"
-            />
+      {pictureArticles.map(({title, src}, index) => 
+        <li class="flex flex-wrap lg:flex-nowrap my-24 gap-8 text-center intersection-node" class:list={[index % 2 === 0 ? 'flex-row lg:text-end' : 'flex-row-reverse lg:text-start']}>
+          <div class="w-full my-8 col-[2] flex justify-center items-center">
+            <p class="max-w-sm lg:max-w-full">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, incidunt ipsam. Quod natus, at commodi consequuntur a, maiores laboriosam cumque vel nisi amet aut minus non eum! Quasi, illo blanditiis. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti molestiae quam nostrum ea corporis ullam, dolor minima necessitatibus distinctio non? Sit minima non dolorum, nisi expedita illo aliquam sapiente temporibus.</p>
+          </div>
+          <div class="w-full flex justify-center items-center shadow-lg">
+            <img class="rounded-lg max-w-96 lg:max-w-full" src={src} />
           </div>
         </li>
       )}
       </ul>
-    </div> -->
-
-    <!-- About me -->
+    </div>
+  </CommonContainer>
+  <CommonContainer size="lg">
 
     <!-- Latest projects -->
     <div>

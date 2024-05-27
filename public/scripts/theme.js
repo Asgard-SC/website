@@ -63,6 +63,20 @@ const initializeThemeButtons = () => {
     });
   }
 
+  const intersectionNodes = document.querySelectorAll(".intersection-node");
+  const intersectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      console.log(target, isIntersecting);
+      if (isIntersecting) {
+        target.classList.add("animate-[slide-up_300ms_ease]");
+      }
+    });
+  }, { threshold: 0.5 });
+  console.log(intersectionNodes);
+  intersectionNodes.forEach((node) => {
+    intersectionObserver.observe(node);
+  });
+
 }
 
 window.onload = async () => {

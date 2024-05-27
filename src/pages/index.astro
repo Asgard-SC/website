@@ -11,7 +11,7 @@ import { links } from '@/info';
 const latestNews = (await getCollection("nyheter"))
   .filter((post: any) => post.data.published)
   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 3) as CollectionEntry<"nyheter">[];
+  .slice(0, 4) as CollectionEntry<"nyheter">[];
 
 // const latestVideos = (await getCollection("videos"))
 //   .filter((post: any) => post.data.published)
@@ -53,11 +53,11 @@ const discord = links.find(link => link.label.toLowerCase() === 'discord') || { 
           </div>
           <ul>
             {latestNews.map((project, index) => 
-              <li class="border-2 border-neutral-200 dark:border-purple-800 rounded-lg my-2 bg-neutral-100 dark:bg-neutral-900 stagger-animation" style={{'--i': index}}>
+              <li class="rounded-lg my-2 bg-neutral-200/70 dark:bg-neutral-950/70 stagger-animation p-1 pb-0" style={{'--i': index}}>
                 <CommonContentListItem result={project} loading="lazy" />
               </li>
             )}
-              <li class="flex justify-center my-2 stagger-animation" style={{'--i': latestNews.length + 1}}>
+              <li class="flex justify-center my-2 stagger-animation text-white" style={{'--i': latestNews.length + 1}}>
                 <Link href={discord.url} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Gå med här</Link>
                 <Link href="/about-us" class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Om oss</Link>
               </li>
@@ -88,7 +88,7 @@ const discord = links.find(link => link.label.toLowerCase() === 'discord') || { 
       </ul>
     </div>
   </CommonContainer>
-  <CommonContainer size="lg">
+  <CommonContainer size="md">
 
     <!-- Latest projects -->
     <div>

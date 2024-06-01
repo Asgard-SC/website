@@ -55,7 +55,7 @@ const discord = links.find(link => link.label.toLowerCase() === 'discord') || { 
             {latestNews.map((project, index) => 
             // <li class="rounded-lg my-3 bg-neutral-900/30 dark:bg-neutral-900 border-2 border-neutral-300 dark:border-neutral-900 stagger-animation p-1 shadow-xl" style={{'--i': index}}>
             <li class="my-3 stagger-animation bg-neutral-200 dark:bg-neutral-800 p-2 rounded-lg shadow-lg dark:shadow-none" style={{'--i': index + 1}}>
-                <CommonContentListItem result={project} loading="lazy" />
+                <CommonContentListItem tag={false} result={project} loading="lazy" />
               </li>
             )}
               <li class="flex justify-center my-2 stagger-animation text-white" style={{'--i': latestNews.length + 2}}>

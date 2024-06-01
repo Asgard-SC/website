@@ -38,35 +38,40 @@ const discord = links.find(link => link.label.toLowerCase() === 'discord') || { 
 
 <Layout title="Asgard: Home page" description="Portfolio website for various projects & employment history" size="full">
   <div>
-    <CommonContainer size="xl" class="grid grid-rows-[47%_47%_6%] grid-cols-1 lg:grid-rows-[94%_6%] lg:grid-cols-2 h-screen">
-      <div class="row-start-1 row-end-1 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col justify-center">
+    <CommonContainer size="xl" class="grid grid-rows-[40%_auto%_10%] grid-cols-1 lg:grid-rows-[auto_96px] lg:grid-cols-2 h-screen">
+      <div class="row-start-1 row-end-1 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col justify-center mt-12 lg:mt-0">
         <div class="h-64 px-8 text-white">
           <CommonTyping class="w-full h-fit my-8 text-6xl lg:text-8xl font-light" passive={false} duration={80} tag="h1" string="Välkommen" />
           <CommonTyping class="w-full h-fit flex flex-wrap text-lg" delay={40} duration={20} tag="p" string="Bla balbalblalb alblblbllbblalbalalblblalblbblablbablaba" />
         </div>
       </div>
       <div class="row-start-2 row-end-2 lg:row-start-1 lg:row-end-1 col-start-1 col-end-1 lg:col-start-2 lg:col-end-2 flex flex-col justify-start lg:justify-center">
-        <div class="ml-8 mt-8">
-          <div class="flex justify-between items-center stagger-animation text-white" style={{'--i': 0}}>
+        <div class="lg:ml-8 lg:mt-8">
+          <div class="flex justify-between items-center stagger-animation text-white p-3" style={{'--i': 0}}>
             <h2 class="text-3xl">Senaste nyheter</h2>
             <a class="underline" href="/projects">Visa alla</a>
           </div>
-          <ul>
+          <ul class="bg-neutral-100/80 dark:bg-neutral-900/80 dark:bg-none rounded-lg stagger-animation px-3 pt-1 pb-1" style={{'--i': 1}}>
             {latestNews.map((project, index) => 
-              <li class="rounded-lg my-2 bg-neutral-200/70 dark:bg-neutral-950/70 stagger-animation p-1 pb-0" style={{'--i': index}}>
+            // <li class="rounded-lg my-3 bg-neutral-900/30 dark:bg-neutral-900 border-2 border-neutral-300 dark:border-neutral-900 stagger-animation p-1 shadow-xl" style={{'--i': index}}>
+            <li class="my-3 stagger-animation bg-neutral-200 dark:bg-neutral-800 p-2 rounded-lg shadow-lg dark:shadow-none" style={{'--i': index + 1}}>
                 <CommonContentListItem result={project} loading="lazy" />
               </li>
             )}
-              <li class="flex justify-center my-2 stagger-animation text-white" style={{'--i': latestNews.length + 1}}>
+              <li class="flex justify-center my-2 stagger-animation text-white" style={{'--i': latestNews.length + 2}}>
                 <Link href={discord.url} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Gå med här</Link>
                 <Link href="/about-us" class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Om oss</Link>
               </li>
           </ul>
         </div>
       </div>
-      <p class="row-start-3 row-end-3 col-start-1 col-end-1 lg:row-start-2 lg:row-end-2 lg:col-span-2 text-center text-neutral-400">
-        Since we are a Swedish organization all the content of this website is also in Swedish. If you are an English speaker and wish to reach out to us with questions you can join our <a class="underline" href={discord.url}>Discord here</a>
-      </p>
+      <div class="row-start-3 row-end-3 col-start-1 col-end-1 lg:row-start-2 lg:row-end-2 lg:col-span-2">
+        <div class="flex justify-center stagger-animation" style={{'--i': latestNews.length + 3}}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-12 animate-bounce fill-purple-700">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>        
+        </div>
+      </div>
     </CommonContainer>
   </div>
   <CommonContainer size="2xl" class="mb-16 gap-y-[96px]">
@@ -119,7 +124,19 @@ const discord = links.find(link => link.label.toLowerCase() === 'discord') || { 
   }
 
   body > main > div:first-child {
-    background-image: url('/images/banner.webp');
+    /* background-image: url('/images/banner-dark.webp'); */
+    background-image: url('/images/banner-light.webp');
+    /* background-image: url('/images/banner-both.webp'); */
     background-position: center;
+    background-size: cover;
+  }
+
+  /* html.dark body > main > div:first-child {
+    background-image: url('/images/banner-light.webp');
+  } */
+  
+  html.light body > main > div:first-child {
+    /* background-image: url('/images/banner-dark.webp'); */
+
   }
 </style>

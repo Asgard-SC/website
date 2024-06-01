@@ -1,7 +1,7 @@
 export const links = [
   {
     label: 'Discord',
-    url: 'https://discord.com/invite/zs5humSzF7'
+    url: 'discord.gg/asgardgaming'
   },
   {
     url: 'https://www.twitch.tv/asgardsverige',

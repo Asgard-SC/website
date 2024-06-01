@@ -3,6 +3,7 @@ import CommonHead from '@/components/common/head.astro';
 import NavigationHeader from '@/components/navigation/header.astro';
 import Container from '@/components/common/container.astro';
 import Link from '@/components/ui/link.astro'
+import { links as linksConst } from '@/info';
 
 interface Props {
 	title: string;
@@ -28,6 +29,8 @@ const links = [
   },
 ];
 const subpath = pathname.match(/[^/]+/g)
+const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
+
 ---
 
 <!doctype html>
@@ -59,14 +62,11 @@ const subpath = pathname.match(/[^/]+/g)
 			<div id="search-model-container"></div>
 		</Container>
 		<footer class="border-t dark:border-neutral-800 h-64">
-			<Container size="lg" class="flex items-center justify-between h-full text-neutral-600 dark:text-neutral-400">
-				<div class="text-sm">
+			<Container size="xl" class="flex items-center justify-between h-full text-neutral-600 dark:text-neutral-400">
+				<div class="text-sm flex flex-col gap-3">
+					<p>Since we are a Swedish organization all the content of this website is also in Swedish. If you are an English speaker and wish to reach out to us with questions you can join our <a class="underline" href={discord.url}>Discord here</a></p>
+					<p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>		
 					<p>Updated @ {new Date().toLocaleDateString()}</p>
-				</div>
-				<div>
-					<p class="text-lg">Contacts</p>
-					<ol class="pl-6 list-disc">
-					</ol>
 				</div>
 			</Container>
 		</footer>

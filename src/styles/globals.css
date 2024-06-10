@@ -62,11 +62,11 @@ body > main {
 }
 
 .typing-row.multi-row .caret-span {
-  border-color: transparent;
+  border-right: 1px solid transparent;
 }
 
 .typing-row .caret-span {
-  border-color: transparent;
+  border-right: 1px solid transparent;
   animation: type-show-caret var(--character-count) step-end var(--delay) 1 forwards;
 }
 

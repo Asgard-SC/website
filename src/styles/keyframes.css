@@ -21,23 +21,27 @@
 @keyframes type-caret {
   from, to {
     /* border-width: 10px; */
-    border-color: transparent;
+    /* border-color: transparent; */
+    border-right: 1px solid transparent;
     /* border-color: red; */
   }
   50% {
     /* border-width: 10px; */
-    border-color: currentColor;
+    /* border-color: currentColor; */
+    border-right: 1px solid currentColor;
   }
 }
 
 @keyframes type-show-caret {
   from {
     /* border-width: 10px; */
-    border-color: currentColor;
+    /* border-color: currentColor; */
+    border-right: 1px solid currentColor;
   }
   to {
     /* border-width: 10px; */
-    border-color: transparent;
+    /* border-color: transparent; */
+    border-right: 1px solid transparent;
     /* border-color: red; */
   }
 }

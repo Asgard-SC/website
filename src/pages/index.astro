@@ -2,11 +2,11 @@
 import Layout from '@/layouts/base.astro';
 import CommonTyping from '@/components/common/typing.astro';
 import CommonContainer from '@/components/common/container.astro';
-import CommonContentListItem from '@/components/common/content-list-item.vue';
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from 'astro:content';
-import Link from '@/components/ui/link.astro';
-import { links } from '@/info';
+// import Link from '@/components/ui/link.astro';
+// import { links } from '@/info';
+import HomeNews from '@/components/home/news.astro'
 
 const latestNews = (await getCollection("nyheter"))
   .filter((post: any) => post.data.published)
@@ -21,49 +21,32 @@ const latestNews = (await getCollection("nyheter"))
 const pictureArticles = [
   {
     src: '/images/banner.webp',
-    title: 'Bla bla bla Bla bla bla Bla bla bla',
+    body: 'Bla bla bla Bla bla bla Bla bla bla',
   },
   {
     src: '/images/banner.webp',
-    title: 'Bla bla bla Bla bla bla Bla bla bla',
+    body: 'Bla bla bla Bla bla bla Bla bla bla',
   },
   {
     src: '/images/banner.webp',
-    title: 'Bla bla bla Bla bla bla Bla bla bla',
+    body: 'Bla bla bla Bla bla bla Bla bla bla',
   }
 ];
 
-const discord = links.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
+// const discord = links.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
 ---
 
 <Layout title="Asgard: Home page" description="Asgard is a Swedish Star Citizen Organisation" size="full">
   <div>
-    <CommonContainer size="xl" class="grid grid-rows-[40%_auto%_10%] grid-cols-1 lg:grid-rows-[auto_96px] lg:grid-cols-2 h-screen">
-      <div class="row-start-1 row-end-1 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col justify-center mt-12 lg:mt-0">
-        <div class="h-96 px-8 text-white">
+    <CommonContainer size="xl" class="grid grid-rows-[40%_auto_10%] grid-cols-1 lg:grid-rows-[auto_96px] lg:grid-cols-2 min-h-screen">
+      <div class="row-start-1 row-end-2 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col lg:justify-center mt-12 lg:mt-0">
+        <div class="mt-32 lg:mt-0 h-64 lg:h-96 px-8 text-white flex flex-col justify-start">
           <CommonTyping class="w-full h-fit my-8 text-6xl lg:text-8xl font-light" passive={false} duration={80} tag="h1" string="Välkommen" />
-          <CommonTyping class="w-full flex flex-wrap text-lg h-fit min-h-4" passive={false} delay={40} duration={20} tag="p" string="Asgard är ett aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans.\n\nFor English speakers: Reach out to us on our Discord server." />
+          <CommonTyping class="w-full flex flex-wrap text-lg h-fit min-h-4" delay={40} duration={20} tag="p" string="Asgard är ett aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans." />
         </div>
       </div>
-      <div class="row-start-2 row-end-2 lg:row-start-1 lg:row-end-1 col-start-1 col-end-1 lg:col-start-2 lg:col-end-2 flex flex-col justify-start lg:justify-center">
-        <div class="lg:ml-8 lg:mt-8">
-          <div class="flex justify-between items-center stagger-animation text-white p-3" style={{'--i': 0}}>
-            <h2 class="text-3xl">Senaste nyheter</h2>
-            <a class="underline" href="/projects">Visa alla</a>
-          </div>
-          <ul class="bg-neutral-100/80 dark:bg-neutral-900/80 dark:bg-none rounded-lg stagger-animation px-3 pt-1 pb-1" style={{'--i': 1}}>
-            {latestNews.map((project, index) => 
-            // <li class="rounded-lg my-3 bg-neutral-900/30 dark:bg-neutral-900 border-2 border-neutral-300 dark:border-neutral-900 stagger-animation p-1 shadow-xl" style={{'--i': index}}>
-            <li class="my-3 stagger-animation bg-neutral-200 dark:bg-neutral-800 p-2 rounded-lg shadow-lg dark:shadow-none" style={{'--i': index + 1}}>
-                <CommonContentListItem tag={false} result={project} loading="lazy" />
-              </li>
-            )}
-              <li class="flex justify-center my-2 stagger-animation text-white" style={{'--i': latestNews.length + 2}}>
-                <Link href={discord.url} class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Gå med här</Link>
-                <Link href="/about-us" class="rounded-full font-semibold py-2 px-4 bg-purple-700 dark:bg-purple-800 hover:bg-purple-800 hover:dark:bg-purple-700">Om oss</Link>
-              </li>
-          </ul>
-        </div>
+      <div class="hidden lg:flex row-start-2 row-end-2 lg:row-start-1 lg:row-end-1 col-start-1 col-end-1 lg:col-start-2 lg:col-end-2 flex-col justify-start lg:justify-center lg:pl-8 lg:pt-8">
+        <HomeNews news={latestNews} color="text-white" />
       </div>
       <div class="row-start-3 row-end-3 col-start-1 col-end-1 lg:row-start-2 lg:row-end-2 lg:col-span-2">
         <div class="flex justify-center stagger-animation" style={{'--i': latestNews.length + 3}}>
@@ -77,16 +60,16 @@ const discord = links.find(link => link.label.toLowerCase() === 'discord') || { 
   <CommonContainer size="2xl" class="mb-16 gap-y-[96px]">
 
     <!-- Picture articles -->
-
+    <HomeNews class="block lg:hidden mt-16" news={latestNews} stagger={false} />
     <div>
       <ul class="w-full mt-8 mb-32">
-      {pictureArticles.map(({title, src}, index) => 
+      {pictureArticles.map(({body, src}, index) => 
         <li class="flex flex-wrap lg:flex-nowrap my-24 gap-8 text-center intersection-node" class:list={[index % 2 === 0 ? 'flex-row lg:text-end' : 'flex-row-reverse lg:text-start']}>
           <div class="w-full my-8 col-[2] flex justify-center items-center">
-            <p class="max-w-sm lg:max-w-full">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, incidunt ipsam. Quod natus, at commodi consequuntur a, maiores laboriosam cumque vel nisi amet aut minus non eum! Quasi, illo blanditiis. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti molestiae quam nostrum ea corporis ullam, dolor minima necessitatibus distinctio non? Sit minima non dolorum, nisi expedita illo aliquam sapiente temporibus.</p>
+            <p class="max-w-sm lg:max-w-full">{body}</p>
           </div>
-          <div class="w-full flex justify-center items-center shadow-lg">
-            <img class="rounded-lg max-w-96 lg:max-w-full" src={src} />
+          <div class="w-full flex justify-center items-center">
+            <img class="rounded-lg max-w-96 lg:max-w-full shadow-lg" src={src} />
           </div>
         </li>
       )}

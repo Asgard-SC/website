@@ -18,7 +18,10 @@ const preloadTheme = () => {
     if (userTheme === "light" || userTheme === "dark") {
       return userTheme;
     } else {
-      return "dark";
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return "dark";
+      } 
+      return "light";
     }
   })()
 

@@ -4,6 +4,7 @@ import NavigationHeader from '@/components/navigation/header.astro';
 import Container from '@/components/common/container.astro';
 import Link from '@/components/ui/link.astro'
 import { links as linksConst } from '@/info';
+import Button from '@/components/ui/button.astro';
 
 interface Props {
 	title: string;
@@ -17,16 +18,16 @@ const { pathname } = Astro.url;
 const links = [
   {
     href: '/',
-    text: 'Home'
+    text: 'Hem'
   },
-  {
-    href: '/projects',
-    text: 'Projects'
-  },
-  {
-    href: '/work',
-    text: 'Work'
-  },
+	{
+		href: '/nyheter',
+		text: 'Nyheter'
+	},
+	{
+		href: '/om-oss',
+		text: 'Om oss'
+	},
 ];
 const subpath = pathname.match(/[^/]+/g)
 const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
@@ -42,13 +43,13 @@ const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') 
 		<NavigationHeader links={links} />
 		<Container size={size} tag="main" class="min-h-screen h-full">
 			<slot />
-			<div id="navigation-drawer" class="lg:hidden rounded-r-lg fixed p-4 top-0 left-0 z-20 w-64 h-full transition-all duration-300 transform -translate-x-full bg-neutral-100 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-900 shadow-lg">
+			<div id="navigation-drawer" class="lg:hidden fixed p-4 top-16 left-0 w-fit h-fit transition-all duration-300 transform -translate-x-full bg-neutral-100/80 dark:bg-neutral-900/80 dark:bg-none rounded-lg border border-neutral-200 dark:border-neutral-900 shadow-lg">
 				<div class="flex flex-col justify-between h-full">
 					<ul>
 						{links.map((link) => 
 							<li class="border-b border-neutral-200 dark:border-neutral-800">
 								<Link
-									class="text-neutral-700 text-center dark:text-neutral-300 my-6 text-lg tracking-wider" 
+									class="text-neutral-700 text-center dark:text-neutral-300 my-6 m-0 text-lg tracking-wider" 
 									class:list={[pathname === link.href || `/${subpath?.[0]}` === link.href ? 'bg-neutral-200 dark:bg-neutral-800' : '']}
 									href={link.href}
 								>
@@ -61,12 +62,26 @@ const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') 
 			</div>
 			<div id="search-model-container"></div>
 		</Container>
-		<footer class="border-t dark:border-neutral-800 h-64">
-			<Container size="xl" class="flex items-center justify-between h-full text-neutral-600 dark:text-neutral-400">
+		<footer class="border-t dark:border-neutral-800">
+			<Container size="xl" class="flex justify-between h-full text-neutral-600 dark:text-neutral-400 p-8 pt-10 gap-x-2">
 				<div class="text-sm flex flex-col gap-3">
 					<p>Since we are a Swedish organization all the content of this website is also in Swedish. If you are an English speaker and wish to reach out to us with questions you can join our <a class="underline" href={discord.url}>Discord here</a></p>
 					<p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>		
 					<p>Updated @ {new Date().toLocaleDateString()}</p>
+				</div>
+				<div class="flex flex-col">
+					<Button class="theme-button block text-neutral-700 dark:text-neutral-300 rounded-lg p-2 m-0">
+						<span class="block dark:hidden animate-[spin_500ms_ease]">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+								<path fill-rule="evenodd" d="M7.455 2.004a.75.75 0 0 1 .26.77 7 7 0 0 0 9.958 7.967.75.75 0 0 1 1.067.853A8.5 8.5 0 1 1 6.647 1.921a.75.75 0 0 1 .808.083Z" clip-rule="evenodd" />
+							</svg>          
+						</span>
+						<span class="hidden dark:block animate-[spin_500ms_ease]">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+								<path d="M10 2a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 2ZM10 15a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 15ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM15.657 5.404a.75.75 0 1 0-1.06-1.06l-1.061 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM6.464 14.596a.75.75 0 1 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM18 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 18 10ZM5 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 5 10ZM14.596 15.657a.75.75 0 0 0 1.06-1.06l-1.06-1.061a.75.75 0 1 0-1.06 1.06l1.06 1.06ZM5.404 6.464a.75.75 0 0 0 1.06-1.06l-1.06-1.06a.75.75 0 1 0-1.061 1.06l1.06 1.06Z" />
+							</svg>
+						</span>
+					</Button>
 				</div>
 			</Container>
 		</footer>

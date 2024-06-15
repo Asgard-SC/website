@@ -7,5 +7,5 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), vue(), sitemap()],
-  site: 'https://asgard.today',
+  site: 'https://asgard.sc',
 });

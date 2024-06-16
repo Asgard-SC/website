@@ -1,13 +1,13 @@
 ---
 import Layout from '@/layouts/base.astro';
 import CommonContainer from '@/components/common/container.astro';
-import { getCollection } from "astro:content"
+import { getCollection } from "astro:content";
 import type { CollectionEntry } from 'astro:content';
-import HomeNews from '@/components/home/news.astro'
+import HomeNews from '@/components/home/news.astro';
 
 const allNews = (await getCollection("nyheter"))
   .filter((post: any) => post.data.published)
-  .sort((a: any) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()) as CollectionEntry<"nyheter">[];
+  .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()) as CollectionEntry<"nyheter">[];
 ---
 
 <Layout title="Nyheter" description="Senaste nyheterna från Asgard">

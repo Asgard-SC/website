@@ -3,6 +3,7 @@ import Button from '@/components/ui/button.astro'
 import Link from '@/components/ui/link.astro'
 import CommonContainer from '@/components/common/container.astro'
 import NavigationSearch from '@/components/navigation/search.astro'
+import { links as linksConst } from '@/info'
 
 interface Props {
   links: { text: string, href: string }[]
@@ -11,6 +12,7 @@ interface Props {
 const { links } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^/]+/g)
+const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
 ---
 <header class="fixed h-16 inset-x-0 mx-auto bg-neutral-100 dark:bg-neutral-950/90 border border-neutral-200 dark:border-neutral-800 rounded-lg">
   <CommonContainer size="xl" class="flex justify-end lg:justify-between relative">
@@ -32,9 +34,9 @@ const subpath = pathname.match(/[^/]+/g)
         </svg>               
       </Button>
     </div>
-    <div class="absolute right-0 top-[13px] flex flex-none flex-wrap content-center pr-3">
+    <div class="absolute right-0 top-[13px] flex flex-none flex-wrap items-center pr-3">
       <NavigationSearch />
-      <Button class="rounded-full px-4 py-1 m-0 mx-1 bg-purple-700">Discord</Button>
+      <Link href={discord.url} class="rounded-full px-4 py-1 m-0 mx-1 text-white bg-purple-500 dark:bg-purple-700 hover:bg-purple-600 dark:hover:bg-purple-900">Discord</Link>
     </div>
   </CommonContainer>
 </header>

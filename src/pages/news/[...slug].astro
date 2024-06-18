@@ -1,0 +1,33 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content"
+import Layout from '@/layouts/base.astro';
+import { formatDate } from "@/utils";
+
+// Create the static projects pages
+export async function getStaticPaths() {
+	const projects = await getCollection("nyheter")
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+		props: project,
+	}))
+}
+
+// Get the requested project
+type Props = CollectionEntry<"nyheter">
+const project = Astro.props
+const { title, date, summary } = project.data
+const { Content } = await project.render();
+---
+
+<Layout title={`Project: ${title}`} description={summary} size="md">
+  <div>
+    <h1 class="text-4xl font-medium">{title}</h1>
+    <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-4">{formatDate(date.toString())} {date.getDate()}</p>
+    <div class="flex items-start mt-2 gap-1">
+    </div>
+    <p>{summary}</p>
+  </div>
+  <div class="markdown-content">
+    <Content />
+  </div>
+</Layout>

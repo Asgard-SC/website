@@ -3,23 +3,23 @@ import Layout from '@/layouts/base.astro';
 import CommonContainer from '@/components/common/container.astro';
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from 'astro:content';
-import HomeNews from '@/components/home/news.astro';
 
 const allNews = (await getCollection("nyheter"))
   .filter((post: any) => post.data.published)
   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()) as CollectionEntry<"nyheter">[];
+console.log(allNews)
 ---
 
 <Layout title="Nyheter" description="Senaste nyheterna från Asgard">
-  <CommonContainer size="xl" class="my-16">
-    <h1 class="text-4xl lg:text-6xl font-bold text-center my-8">Nyheter</h1>
+  <CommonContainer size="xl">
+    <h1 class="text-4xl lg:text-6xl font-bold text-center">Nyheter</h1>
     <div class="flex flex-col gap-8">
-      {allNews.map((newsItem) => (
+      {allNews.map(({slug, data}) => (
         <div class="p-4 border-b border-neutral-200 dark:border-neutral-800">
-          <h2 class="text-2xl font-semibold">{newsItem.data.title}</h2>
-          <p class="text-sm text-gray-500">{new Date(newsItem.data.date).toLocaleDateString()}</p>
-          <p class="mt-4">{newsItem.data.description}</p>
-          <a href={newsItem.data.url} class="text-blue-500 hover:underline">Läs mer</a>
+          <h2 class="text-2xl font-semibold">{data.title}</h2>
+          <p class="text-sm text-gray-500">{new Date(data.date).toLocaleDateString()}</p>
+          <p class="mt-4">{data.description}</p>
+          <a href={`/news/${slug}`} class="text-blue-500 hover:underline">Läs mer</a>
         </div>
       ))}
     </div>

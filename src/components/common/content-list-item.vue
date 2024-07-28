@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <a class="flex group p-2 transition-colors duration-200 ease-in-out" :href="props.result.collection === 'projects' ? `/${result.collection}/${result.slug}` : `/${result.collection}#${result.slug}`">
+  <a class="flex group p-2 transition-colors duration-200 ease-in-out" :href="props.result.collection === 'news' ? `/${result.collection}/${result.slug}` : `/${result.collection}#${result.slug}`">
     <div class="w-full">
       <div>
         <h1 class="text-lg">

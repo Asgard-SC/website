@@ -5,7 +5,7 @@ import { formatDate } from "@/utils";
 
 // Create the static projects pages
 export async function getStaticPaths() {
-	const projects = await getCollection("nyheter")
+	const projects = await getCollection("news")
 	return projects.map((project) => ({
 		params: { slug: project.slug },
 		props: project,
@@ -13,14 +13,19 @@ export async function getStaticPaths() {
 }
 
 // Get the requested project
-type Props = CollectionEntry<"nyheter">
+type Props = CollectionEntry<"news">
 const project = Astro.props
 const { title, date, summary } = project.data
 const { Content } = await project.render();
 ---
 
 <Layout title={`Project: ${title}`} description={summary} size="md">
-  <div>
+  <div class="pt-32">
+    <div class="flex gap-x-1">
+      <a class="underline" href="/news">Nyheter</a>
+      <span>/</span>
+      <span class="underline">{title}</span>
+    </div>
     <h1 class="text-4xl font-medium">{title}</h1>
     <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-4">{formatDate(date.toString())} {date.getDate()}</p>
     <div class="flex items-start mt-2 gap-1">

@@ -25,7 +25,7 @@
   const dialog = ref(false);
   const active = ref(0);
   const input = ref<HTMLInputElement | undefined>();
-  const results = ref<Array<CollectionEntry<"nyheter"> | CollectionEntry<"videos">>>(props.data);
+  const results = ref<Array<CollectionEntry<"news"> | CollectionEntry<"videos">>>(props.data);
 
   const handleClick = (event: MouseEvent) => {
     if ((event.target as HTMLElement || null)?.classList.contains('slot-container')) {

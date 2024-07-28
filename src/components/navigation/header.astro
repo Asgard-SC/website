@@ -12,7 +12,7 @@ interface Props {
 const { links } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^/]+/g)
-const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
+const { discord } = linksConst;
 ---
 <header class="fixed h-16 inset-x-0 mx-auto bg-neutral-100 dark:bg-neutral-950/90 border border-neutral-200 dark:border-neutral-800 rounded-lg">
   <CommonContainer size="xl" class="flex justify-end lg:justify-between relative">

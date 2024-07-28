@@ -48,7 +48,17 @@ body > main {
 }
 
 .stagger-animation {
-  animation: slide-up 350ms ease calc(3000ms + calc(var(--i) * 100ms)) 1 backwards;
+  animation: slide-up 400ms ease calc(1000ms + calc(var(--i) * 100ms)) 1 backwards;
+}
+
+.intersection-node {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.intersection-node.in-view {
+  opacity: 1;
+  @apply animate-[slide-up_300ms]
 }
 
 /* .caret-span,

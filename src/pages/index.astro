@@ -4,19 +4,18 @@ import CommonTyping from '@/components/common/typing.astro';
 import CommonContainer from '@/components/common/container.astro';
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from 'astro:content';
-// import Link from '@/components/ui/link.astro';
-// import { links } from '@/info';
+import { links } from '@/info';
 import HomeNews from '@/components/home/news.astro'
 
-const latestNews = (await getCollection("nyheter"))
+const latestNews = (await getCollection("news"))
   .filter((post: any) => post.data.published)
   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 4) as CollectionEntry<"nyheter">[];
+  .slice(0, 4) as CollectionEntry<"news">[];
 
-// const latestVideos = (await getCollection("videos"))
-//   .filter((post: any) => post.data.published)
-//   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-//   .slice(0, 3) as CollectionEntry<"videos">[];
+const latestVideos = (await getCollection("videos"))
+  .filter((post: any) => post.data.published)
+  .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3) as CollectionEntry<"videos">[];
 
 const pictureArticles = [
   {
@@ -32,6 +31,7 @@ const pictureArticles = [
     body: '03 Bla bla bla Bla bla bla Bla bla bla',
   }
 ];
+const { youtube } = links;
 ---
 
 <Layout title="Asgard: Home page" description="Asgard is a Swedish Star Citizen Organisation" size="full">
@@ -40,7 +40,9 @@ const pictureArticles = [
       <div class="row-start-1 row-end-2 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col lg:justify-center mt-12 lg:mt-0">
         <div class="mt-32 lg:mt-0 h-64 lg:h-96 px-8 text-white flex flex-col justify-start">
           <CommonTyping class="w-full h-fit my-8 text-6xl lg:text-8xl font-light" passive={false} duration={80} tag="h1" string="Välkommen" />
-          <CommonTyping class="w-full flex flex-wrap text-lg h-fit min-h-4" delay={40} duration={20} tag="p" string="Asgard är ett aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans." />
+          <p class="animate-[slide-up_400ms_ease_900ms_1_backwards]">
+            Asgard är en aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans.
+          </p>
         </div>
       </div>
       <div class="hidden lg:flex row-start-2 row-end-2 lg:row-start-1 lg:row-end-1 col-start-1 col-end-1 lg:col-start-2 lg:col-end-2 flex-col justify-start lg:justify-center lg:pl-8 lg:pt-8">
@@ -76,24 +78,24 @@ const pictureArticles = [
   </CommonContainer>
   <CommonContainer size="md">
 
-    <!-- Latest projects -->
+    <!-- Latest videos -->
     <div>
       <div class="flex justify-between items-center">
         <h2 class="text-3xl">Senaste videos</h2>
-        <a class="underline" href="/projects">Visa alla</a>
+        <a class="underline" target="_blank" href={`${youtube.url}/videos`}>Visa alla</a>
       </div>
-      <!-- <ul class="mt-8">
+      <ul class="mt-8">
         {latestVideos.map((project, index, arr) => 
           <li class:list={{'mb-0': index === arr.length - 1, 'border-b border-neutral-200 dark:border-neutral-800': index !== arr.length - 1}} class="my-8 pb-8">
-            <CommonContentListItem result={project} loading="lazy" />
+            {JSON.stringify(project)}
           </li>
         )}
-      </ul> -->
+      </ul>
     </div>
 
     <!-- Discord Community Server -->
     <div>
-      
+      <h2 class="text-3xl"></h2>
     </div>
   </CommonContainer>
 </Layout>

@@ -71,11 +71,10 @@ const initializeThemeButtons = () => {
     entries.forEach(({ target, isIntersecting }) => {
       console.log(target, isIntersecting);
       if (isIntersecting) {
-        target.classList.add("animate-[slide-up_300ms_ease]");
+        target.classList.add("in-view");
       }
     });
   }, { threshold: 0.5 });
-  console.log(intersectionNodes);
   intersectionNodes.forEach((node) => {
     intersectionObserver.observe(node);
   });

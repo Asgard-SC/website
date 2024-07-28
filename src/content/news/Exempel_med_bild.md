@@ -9,7 +9,7 @@ tags:
 author: "Nabel"
 published: true
 ---
-![Asgard Banner](/public/images/Discord_Banner_4.png)
+![Asgard Banner](/images/Discord_Banner_4.png)
 # Ny hemsida
 
 Hurray

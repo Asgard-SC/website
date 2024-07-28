@@ -107,7 +107,7 @@
       <div class="fixed h-screen w-screen flex justify-center content-center pt-40 transition-all">
         <div class="flex flex-col h-4/5 md:h-1/2 w-4/5 md:w-1/2 bg-neutral-100 dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-800 rounded-lg" @click.stop>
           <div class="m-2 flex items-center justify-center p-1 border bg-transparent border-neutral-300 dark:border-neutral-800 rounded">
-            <input class="p-2 outline-none w-full bg-transparent" placeholder="Keywords... (Vue, Tailwind)" ref="input" v-model="search" type="text" />
+            <input class="p-2 outline-none w-full bg-transparent" placeholder="Nyckelord... (Event, Video, Asgard)" ref="input" v-model="search" type="text" />
           </div>
           <div class="flex h-full m-2 mt-0 flex-col overflow-y-scroll">
             <div v-if="results.length === 0" class="flex justify-center items-center h-full">

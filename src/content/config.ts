@@ -10,6 +10,7 @@ const news = defineCollection({
     summary: z.string(),
     tags: z.array(z.string()),
     title: z.string(),
+    image: z.string(),
   }),
 });
 

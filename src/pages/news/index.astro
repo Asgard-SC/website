@@ -10,14 +10,15 @@ const allNews = (await getCollection("news"))
   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()) as CollectionEntry<"news">[];
 ---
 
-<Layout title="Nyheter" description="Senaste nyheterna från Asgard">
+<Layout title="Nyheter" description="Senaste nyheterna från Asgard" image="/images/news.webp">
   <CommonContainer size="xl">
     <h1 class="text-4xl lg:text-3xl pt-32">Nyheter</h1>
-    <img src="/images/news.webp" alt="Asgard News" class="w-full h-auto rounded-lg my-8" />
+    <!-- <img src="/images/news.webp" alt="Asgard News" class="w-full h-auto rounded-lg my-8" /> -->
     <ul class="rounded-lg px-3 pt-1 pb-1">
       {allNews.map((project, index) =>
       <li class="my-3 bg-neutral-200 dark:bg-neutral-800 p-2 rounded-lg shadow-xl dark:shadow-none">
-          <CommonContentListItem tag={false} result={project} loading="lazy" />
+          {/* <img src={project.data.image} alt="Asgard news article cover image." class="w-full h-auto rounded-lg mb-8" /> */}
+          <CommonContentListItem tag={false} result={project} loading="lazy" image />
         </li>
       )}
     </ul>

@@ -8,4 +8,5 @@ tags:
 - ""
 author: "felixryd"
 published: false
+image: "/images/banner.webp"
 ---

@@ -26,10 +26,9 @@ const { Content } = await project.render();
       <span>/</span>
       <span>{title}</span>
     </div>
+    <img src={project.data.image} alt={title} class="w-full h-auto rounded-lg my-8" />
     <h1 class="text-4xl font-medium">{title}</h1>
     <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-4">{formatDate(date.toString())} {date.getDate()}</p>
-    <div class="flex items-start mt-2 gap-1">
-    </div>
     <p>{summary}</p>
   </div>
   <div class="markdown-content">

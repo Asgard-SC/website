@@ -8,6 +8,7 @@ tags:
 - ""
 author: "Nabel"
 published: true
+image: "/images/banner.webp"
 ---
 ![Asgard Banner](/images/Discord_Banner_4.png)
 # Ny hemsida

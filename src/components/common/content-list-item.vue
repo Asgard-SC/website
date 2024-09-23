@@ -28,7 +28,7 @@
       v-if="image"
       :src="result.data.image"
       :alt="result.data.title"
-      class="w-full h-32 object-cover rounded-lg"
+      class="w-full aspect-video object-cover rounded-lg"
     />
     <div class="flex">
       <div class="w-full">

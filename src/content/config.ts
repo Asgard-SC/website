@@ -20,7 +20,7 @@ const videos = defineCollection({
     date: z.coerce.date(),
     description: z.string(),
     published: z.boolean(),
-    src: z.string(),
+    video_id: z.string(),
     tags: z.array(z.string()),
     title: z.string(),
   }),

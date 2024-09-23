@@ -6,6 +6,6 @@ tags:
 - "video"
 - ""
 author: "Nabel"
-src: "https://youtu.be/nTOOwIq5Msc?si=UCkLkFrLTZjdvJNN"
+video_id: "nTOOwIq5Msc"
 published: true
 ---

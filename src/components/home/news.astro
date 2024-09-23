@@ -22,7 +22,7 @@ const { discord } = links;
   <ul class="bg-neutral-100/90 dark:bg-neutral-900/90 dark:bg-none rounded-lg px-3 pt-1 pb-1" class:list={{"stagger-animation": stagger}} style={{'--i': 1}}>
     {news.map((project, index) =>
     <li class="my-3 bg-neutral-200 dark:bg-neutral-800 p-2 rounded-lg shadow-xl dark:shadow-none" class:list={{"stagger-animation": stagger}} style={{'--i': index + 1}}>
-        <CommonContentListItem tag={false} result={project} loading="lazy" />
+        <CommonContentListItem tag={false} result={project} loading="lazy" image={false} />
       </li>
     )}
       <li class="flex flex-wrap justify-center my-2 text-white" class:list={{"stagger-animation": stagger}} style={{'--i': news.length + 2}}>

@@ -2,7 +2,7 @@
 date: "2024-09-21"
 title: "Blockade Runner"
 summary: "Eventet Blockade Runner har varit i full gång i Star Citizen, där den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet."
-description: "Eventet "Blockade Runner" har varit i full gång i Star Citizen, där den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet."
+description: "Eventet Blockade Runner har varit i full gång i Star Citizen, där den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet."
 tags:
 - "Nyheter"
 - ""
@@ -19,14 +19,16 @@ Vi i ASGARD antog utmaningen att bryta blockaden lördagen den 21 Sep, då event
 
 Organisering: Vi delade upp oss i fem grupper, med cirka 30 deltagare från ASGARD:
 
-## Grupp 1 & 2: Strid
+## Strid
 
-Grupp 1, ledd av vår pilot Klodan, fick i uppgift att bekämpa NPC-skeppen i Everus Harbors direkta närhet för att säkerställa att våra transportfartyg kunde ta sig fram obehindrat.
+### Grupp 1
+Ledd av vår pilot Klodan, fick i uppgift att bekämpa NPC-skeppen i Everus Harbors direkta närhet för att säkerställa att våra transportfartyg kunde ta sig fram obehindrat.
 
-Grupp 2, under ledning av piloten Tux, skulle kvantumhoppa till platser där Nine-Tails hade blockerat transportskeppen som var lastade med Zeta-Prolanide, och eliminera alla fiender som stod i vägen.
+### Grupp 2
+Under ledning av piloten Tux, skulle kvantumhoppa till platser där Nine-Tails hade blockerat transportskeppen som var lastade med Zeta-Prolanide, och eliminera alla fiender som stod i vägen.
 
-## Grupp 3-5: Transport
-Dessa grupper ansvarade för att hämta godset ombord på de blockerade skeppen och föra det säkert tillbaka till stationen.
+## Transport
+Tre transport grupper ansvarade för att hämta godset ombord på de blockerade skeppen och föra det säkert tillbaka till stationen.
 
 ## Genomförande: 
 Den största utmaningen under eventet var för våra stridsgrupper, då Nine-Tails spawnade i en oändlig ström. Till slut blev det nödvändigt för Klodan att kalla in förstärkning från grupp 2 för att kunna hålla fienden i schack.

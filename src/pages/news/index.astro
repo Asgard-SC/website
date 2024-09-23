@@ -13,7 +13,6 @@ const allNews = (await getCollection("news"))
 <Layout title="Nyheter" description="Senaste nyheterna från Asgard" image="/images/news.webp">
   <CommonContainer size="xl">
     <h1 class="text-4xl lg:text-3xl pt-32">Nyheter</h1>
-    <!-- <img src="/images/news.webp" alt="Asgard News" class="w-full h-auto rounded-lg my-8" /> -->
     <ul class="rounded-lg px-3 pt-1 pb-1">
       {allNews.map((project) =>
       <li class="my-3 bg-neutral-200 dark:bg-neutral-800 p-2 rounded-lg shadow-xl dark:shadow-none">

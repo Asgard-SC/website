@@ -68,7 +68,7 @@ const { youtube } = links;
       {pictureArticles.map(({body, src}, index) => 
         <li class="flex flex-wrap lg:flex-nowrap my-24 gap-8 text-center intersection-node" class:list={[index % 2 === 0 ? 'flex-row lg:text-end' : 'flex-row-reverse lg:text-start']}>
           <div class="w-full my-8 col-[2] flex justify-center items-center">
-            <p class="max-w-sm lg:max-w-full">{body}</p>
+            <p class="max-w-sm lg:max-w-full" set:html={body} />
           </div>
           <div class="w-full flex justify-center items-center">
             <img class="rounded-lg max-w-96 lg:max-w-full shadow-lg" src={src} />

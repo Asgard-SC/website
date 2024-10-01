@@ -1,5 +1,5 @@
 ---
-date: "2024-10-01"
+date: "2024-09-01"
 title: "Välkommen till vår nya hemsida!"
 summary: "Vi lanserar en nya hemsida för Asgard, håll ett öga här för att se nyheter på vad vi gör och för info om vilka vi är."
 description: "Vi lanserar en nya hemsida för Asgard, håll ett öga här för att se nyheter på vad vi gör och för info om vilka vi är."

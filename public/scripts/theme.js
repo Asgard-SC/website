@@ -18,9 +18,10 @@ const preloadTheme = () => {
     if (userTheme === "light" || userTheme === "dark") {
       return userTheme;
     } else {
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return "dark";
-      } 
+      // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      //   return "dark";
+      // } 
+      // return "light";
       return "light";
     }
   })()
@@ -71,11 +72,10 @@ const initializeThemeButtons = () => {
     entries.forEach(({ target, isIntersecting }) => {
       console.log(target, isIntersecting);
       if (isIntersecting) {
-        target.classList.add("animate-[slide-up_300ms_ease]");
+        target.classList.add("in-view");
       }
     });
   }, { threshold: 0.5 });
-  console.log(intersectionNodes);
   intersectionNodes.forEach((node) => {
     intersectionObserver.observe(node);
   });

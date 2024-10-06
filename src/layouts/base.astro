@@ -5,6 +5,8 @@ import Container from '@/components/common/container.astro';
 import Link from '@/components/ui/link.astro'
 import { links as linksConst } from '@/info';
 import Button from '@/components/ui/button.astro';
+import NavigationSearch from '@/components/navigation/search.astro'
+import { formatDate } from '@/utils';
 
 interface Props {
 	title: string;
@@ -21,16 +23,16 @@ const links = [
     text: 'Hem'
   },
 	{
-		href: '/nyheter',
+		href: '/news',
 		text: 'Nyheter'
 	},
 	{
-		href: '/om-oss',
+		href: '/about-us',
 		text: 'Om oss'
 	},
 ];
 const subpath = pathname.match(/[^/]+/g)
-const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
+const { discord } = linksConst;
 
 ---
 
@@ -63,13 +65,13 @@ const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') 
 			<div id="search-model-container"></div>
 		</Container>
 		<footer class="border-t dark:border-neutral-800">
-			<Container size="xl" class="flex justify-between h-full text-neutral-600 dark:text-neutral-400 p-8 pt-10 gap-x-2">
-				<div class="text-sm flex flex-col gap-3">
+			<Container size="xl" class="flex justify-between h-full text-neutral-600 dark:text-neutral-400 p-4 gap-x-2">
+				<div class="text-xs flex flex-col gap-3">
 					<p>Since we are a Swedish organization all the content of this website is also in Swedish. If you are an English speaker and wish to reach out to us with questions you can join our <a class="underline" href={discord.url}>Discord here</a></p>
 					<p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>		
-					<p>Updated @ {new Date().toLocaleDateString()}</p>
+					<p>Updated @ {formatDate(new Date().toISOString())} {new Date().getDate()}</p>
 				</div>
-				<div class="flex flex-col">
+				<div class="flex flex-col gap-y-1">
 					<Button class="theme-button block text-neutral-700 dark:text-neutral-300 rounded-lg p-2 m-0">
 						<span class="block dark:hidden animate-[spin_500ms_ease]">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -82,6 +84,7 @@ const discord = linksConst.find(link => link.label.toLowerCase() === 'discord') 
 							</svg>
 						</span>
 					</Button>
+					<NavigationSearch />
 				</div>
 			</Container>
 		</footer>

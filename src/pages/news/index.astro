@@ -1,0 +1,24 @@
+---
+import Layout from '@/layouts/base.astro';
+import CommonContainer from '@/components/common/container.astro';
+import CommonContentListItem from '@/components/common/content-list-item.vue';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
+
+const allNews = (await getCollection("news"))
+  .filter((post: any) => post.data.published)
+  .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()) as CollectionEntry<"news">[];
+---
+
+<Layout title="Nyheter" description="Senaste nyheterna från Asgard" image="/images/news.webp">
+  <CommonContainer size="xl">
+    <h1 class="text-4xl lg:text-3xl pt-32">Nyheter</h1>
+    <ul class="rounded-lg px-3 pt-1 pb-1">
+      {allNews.map((project) =>
+      <li class="my-3 bg-neutral-200 dark:bg-neutral-800 p-2 rounded-lg shadow-xl dark:shadow-none">
+          <CommonContentListItem tag={false} result={project} loading="lazy" image={true} />
+        </li>
+      )}
+    </ul>
+  </CommonContainer>
+</Layout>

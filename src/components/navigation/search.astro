@@ -3,7 +3,7 @@ import NavigationSearch from '@/components/navigation/search.vue';
 import Button from '@/components/ui/button.astro';
 import { getCollection } from "astro:content"
 
-const news = (await getCollection("nyheter")).filter((post: any) => post.data.published);
+const news = (await getCollection("news")).filter((post: any) => post.data.published);
 const videos = (await getCollection("videos")).filter((post: any) => post.data.published)
   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 const entries = [...news, ...videos]

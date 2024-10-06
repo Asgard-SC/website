@@ -4,45 +4,47 @@ import CommonTyping from '@/components/common/typing.astro';
 import CommonContainer from '@/components/common/container.astro';
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from 'astro:content';
-// import Link from '@/components/ui/link.astro';
-// import { links } from '@/info';
+import { links } from '@/info';
 import HomeNews from '@/components/home/news.astro'
+import CommonContentListItem from '@/components/common/content-list-item.vue';
+import { formatDate } from '@/utils';
 
-const latestNews = (await getCollection("nyheter"))
+const latestNews = (await getCollection("news"))
   .filter((post: any) => post.data.published)
   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 4) as CollectionEntry<"nyheter">[];
+  .slice(0, 4) as CollectionEntry<"news">[];
 
-// const latestVideos = (await getCollection("videos"))
-//   .filter((post: any) => post.data.published)
-//   .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-//   .slice(0, 3) as CollectionEntry<"videos">[];
+const latestVideos = (await getCollection("videos"))
+  .filter((post: any) => post.data.published)
+  .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3) as CollectionEntry<"videos">[];
 
 const pictureArticles = [
   {
-    src: '/images/banner.webp',
-    body: '01 Bla bla bla Bla bla bla Bla bla bla',
+    src: '/images/Logo-ASG_Svart&Vit.png',
+    body: 'Asgard grundades officiellt 2014 av en grupp svenska entusiaster. Sedan dess har vi vuxit till att bli en välorganiserad och aktiv organisation. Vi har regelbundet organiserade aktiviteter och events, samt är aktiva inom det större Star Citizen communityt där vi möter, träffar och sammarbetar med/mot andra Organisationer. <br> <br> Vår ambition är att skapa ett community där spelare med olika intressen inom Star Citizen kan samarbeta för att uppnå gemensama mål, oavsett om det handlar om handel, utforskning, strid eller industriella operationer.',
   },
   {
-    src: '/images/Aegis - Eclipse - In route to AO.png',
-    body: '02 Bla bla bla Bla bla bla Bla bla bla',
+    src: '/images/ASG-Avd_Vitt.png',
+    body: '<strong>TYR</strong><br>Vår längst stående avdelning är TYR, det är den militära armen inom Asgard... <br> <br> <strong>IDUN</strong><br>Vi jobbar på att bygga upp vår industriella avdelning IDUN, då mycket utveckling sker i dessa områden idag så gör det en av våra större prioriteringar. Vi ser fram mot att lära oss vad mining, salvaging, trading, hauling osv praktiskt kommer att innebära i the verse.',
   },
   {
-    src: '/images/banner.webp',
-    body: '03 Bla bla bla Bla bla bla Bla bla bla',
+    src: '/images/Logo-AB_MARS.png',
+    body: '<strong>AB - Aurora Borealis</strong> <br> Aurora Borealis är en nordisk allians bestående av organisationer från Finland, Sverige och Norge. Alliansen bygger på tanken att organisationer från dessa länder kan samarbeta effektivt tack vare vår gemensamma historia och kultur. <br> <br> <strong>Syfte</strong> <br> Syftet med alliansen är att förena nordiska organisationer i strävan efter gemensamma mål. Dessa mål kan inkludera att tillsammans bygga en bas för att skaffa resurser eller att genomföra samarbetsprojekt. <br> <br> <strong>Vision</strong> <br> Alliansen kommer att fungera som en distinkt organisation med egna militära och ekonomiska grenar, och agera som ett kollektiv av medlemsorganisationer.',
   }
 ];
-
-// const discord = links.find(link => link.label.toLowerCase() === 'discord') || { url: '#' };
+const { youtube } = links;
 ---
 
-<Layout title="Asgard: Home page" description="Asgard is a Swedish Star Citizen Organisation" size="full">
+<Layout title="Asgard: Home page" description="Asgard is a Swedish Star Citizen Organisation" size="full"  image="/images/ASGARD.webp">
   <div>
     <CommonContainer size="xl" class="grid grid-rows-[40%_auto_10%] grid-cols-1 lg:grid-rows-[auto_96px] lg:grid-cols-2 min-h-screen">
       <div class="row-start-1 row-end-2 col-start-1 col-end-1 lg:col-start-1 lg:col-end-1 flex flex-col lg:justify-center mt-12 lg:mt-0">
         <div class="mt-32 lg:mt-0 h-64 lg:h-96 px-8 text-white flex flex-col justify-start">
           <CommonTyping class="w-full h-fit my-8 text-6xl lg:text-8xl font-light" passive={false} duration={80} tag="h1" string="Välkommen" />
-          <CommonTyping class="w-full flex flex-wrap text-lg h-fit min-h-4" delay={40} duration={20} tag="p" string="Asgard är ett aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans." />
+          <p class="animate-[slide-up_400ms_ease_900ms_1_backwards]">
+            Asgard är en aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans.
+          </p>
         </div>
       </div>
       <div class="hidden lg:flex row-start-2 row-end-2 lg:row-start-1 lg:row-end-1 col-start-1 col-end-1 lg:col-start-2 lg:col-end-2 flex-col justify-start lg:justify-center lg:pl-8 lg:pt-8">
@@ -66,7 +68,7 @@ const pictureArticles = [
       {pictureArticles.map(({body, src}, index) => 
         <li class="flex flex-wrap lg:flex-nowrap my-24 gap-8 text-center intersection-node" class:list={[index % 2 === 0 ? 'flex-row lg:text-end' : 'flex-row-reverse lg:text-start']}>
           <div class="w-full my-8 col-[2] flex justify-center items-center">
-            <p class="max-w-sm lg:max-w-full">{body}</p>
+            <p class="max-w-sm lg:max-w-full" set:html={body} />
           </div>
           <div class="w-full flex justify-center items-center">
             <img class="rounded-lg max-w-96 lg:max-w-full shadow-lg" src={src} />
@@ -78,24 +80,32 @@ const pictureArticles = [
   </CommonContainer>
   <CommonContainer size="md">
 
-    <!-- Latest projects -->
+    <!-- Latest videos -->
     <div>
       <div class="flex justify-between items-center">
         <h2 class="text-3xl">Senaste videos</h2>
-        <a class="underline" href="/projects">Visa alla</a>
+        <a class="underline" target="_blank" href={`${youtube.url}/videos`}>Visa alla</a>
       </div>
-      <!-- <ul class="mt-8">
+      <ul class="mt-8">
         {latestVideos.map((project, index, arr) => 
-          <li class:list={{'mb-0': index === arr.length - 1, 'border-b border-neutral-200 dark:border-neutral-800': index !== arr.length - 1}} class="my-8 pb-8">
-            <CommonContentListItem result={project} loading="lazy" />
+          <li class:list={{'mb-0': index === arr.length - 1, 'border-b border-neutral-200 dark:border-neutral-800': index !== arr.length - 1}} class="my-8 pb-4">
+            <iframe 
+              src={`https://www.youtube.com/embed/${project.data.video_id}`}
+              class="w-full h-96 rounded-lg shadow-lg"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <h1 class="text-2xl mt-2">{project.data.title}</h1>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-4">{formatDate(project.data.date.toString())} {project.data.date.getDate()}</p>
+            <p class="text-md">{project.data.description}</p>
           </li>
         )}
-      </ul> -->
+      </ul>
     </div>
 
     <!-- Discord Community Server -->
     <div>
-      
+      <h2 class="text-3xl"></h2>
     </div>
   </CommonContainer>
 </Layout>

@@ -57,5 +57,7 @@
   @apply underline;
 }
 
-
+.markdown-content img {
+  @apply rounded-lg;
+}
 

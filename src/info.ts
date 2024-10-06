@@ -1,19 +1,18 @@
-export const links = [
-  {
+export const links = {
+  discord:   {
     label: 'Discord',
     url: 'https://discord.gg/asgardgaming'
   },
-  {
-    url: 'https://www.twitch.tv/asgardsverige',
+  twitch: {
     label: 'Twitch',
+    url: 'https://www.twitch.tv/asgardsverige'
   },
-  {
-    url: 'https://www.youtube.com/channel/UCSnHzDo2QJmOdnJ-z0taUgw',
+  youtube: {
     label: 'YouTube',
+    url: 'https://www.youtube.com/channel/UCSnHzDo2QJmOdnJ-z0taUgw'
   },
-  
-  {
-    url: 'https://www.youtube.com/channel/UCSnHzDo2QJmOdnJ-z0taUgw',
+  facebook: {
     label: 'Facebook',
+    url: 'https://www.youtube.com/channel/UCSnHzDo2QJmOdnJ-z0taUgw'
   },
-]
+}

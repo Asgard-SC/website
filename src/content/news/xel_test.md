@@ -7,7 +7,7 @@ tags:
 - "Nyheter"
 - "test-tag"
 author: "Xel"
-published: true
+published: false
 image: "/images/RSI-Arrastra-Miningastroid02.png"
 ---
 Den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet.  

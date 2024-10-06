@@ -7,7 +7,7 @@ tags:
 - "Nyheter"
 - "CitizenCon"
 author: "Nabel"
-published: true
+published: false
 image: "/images/starcitizen-citzencon-main-background.png"
 ---
 [Officiell CitizenCon Info](https://robertsspaceindustries.com/citizencon)

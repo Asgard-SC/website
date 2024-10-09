@@ -8,6 +8,7 @@ tags:
 - "Guide"
 author: "Nabel"
 published: false
+image: "/images/Logo-ASG_Svart&Vit.png"
 ---
 
 # Intro

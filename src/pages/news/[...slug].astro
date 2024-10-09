@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 // Get the requested project
 type Props = CollectionEntry<"news">
 const project = Astro.props
-const { title, date, summary } = project.data
+const { title, date, summary, description } = project.data
 const { Content } = await project.render();
 ---
 
@@ -29,7 +29,7 @@ const { Content } = await project.render();
     <img src={project.data.image} alt={title} class="w-full h-auto rounded-lg my-8" />
     <h1 class="text-4xl font-medium">{title}</h1>
     <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-4">{formatDate(date.toString())} {date.getDate()}</p>
-    <p>{summary}</p>
+    <p>{description}</p>
   </div>
   <div class="markdown-content">
     <Content />

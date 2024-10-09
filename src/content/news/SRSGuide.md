@@ -1,11 +1,12 @@
 ---
 date: "2042-01-01"
 title: "SRS Guide"
-summary: "En snabb guide för hur du kommer igång med vår SRS instans."
-description: "En snabb guide för hur du kommer igång med vår SRS instans."
+summary: "En guide för hur du kommer igång med vår SRS instans."
+description: "En guide för hur du kommer igång med vår SRS instans."
 tags:
 - "Nyheter"
 - "Guide"
+- "SRS"
 author: "Nabel"
 published: false
 image: "/images/Logo-ASG_Svart&Vit.png"

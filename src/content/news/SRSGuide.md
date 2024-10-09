@@ -29,10 +29,13 @@ Vi har en preppad installation av SRS för att komma igång snabbare, du hittar 
 3. Starta SRS via **SR-ClientRadio.exe**
 4. Verifiera att server detaljerna stämmer överens, att EAM coalition password är inmatat och ditt Nickname står under EAM Name.  
 ![Startad klient](/images/SRS/SRS_General.webp)  
+
 5. Klicka **Connect** och **connect external awacs mode (eam)**. Du ska nu se att VoIP och Game längst ner i fönstret lyser grönt.  
 ![Ansluten klient](/images/SRS/SRS_General_Connected.webp)  
+
 6. Klicka **toggle radio overlay** för att sätta upp kanaler. Nu ser du ett grått fönster med fem identiska sektioner, dessa simulerar var sin radio.  
 ![Radio inställningar](/images/SRS/SRS_Radio.webp)  
+
 7. Här kan du:  
    1. Ändra volym en radio har via slidern i botten
    2. Ändra freqvens genom att klicka på de ovala knapparna ovan och under svara rutan

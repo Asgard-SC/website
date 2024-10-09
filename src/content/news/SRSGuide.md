@@ -30,7 +30,7 @@ Vi har en preppad installation av SRS för att komma igång snabbare, du hittar 
 | 4. | Verifiera att server detaljerna stämmer överens, att EAM coalition password är inmatat och ditt Nickname står under EAM Name. | ![Startad klient](/images/SRS/SRS_General.webp) |
 | 5. | Klicka **Connect** och **connect external awacs mode (eam)**. Du ska nu se att VoIP och Game längst ner i fönstret lyser grönt. | ![Ansluten klient](/images/SRS/SRS_General_Connected.webp) |
 | 6. | Klicka **toggle radio overlay** för att sätta upp kanaler. Nu ser du ett grått fönster med fem identiska sektioner, dessa simulerar var sin radio. | ![Radio inställningar](/images/SRS/SRS_Radio.webp) |
-| 7. | Här kan du ändra vilken frekvens en radio har via slidern i botten, ändra freqvensen genom att klicka på de ovala knapparna ovan och under svara rutan eller ändra kanal genom att klicka på "Ch." fliken. Du kan ändra vilken radio som är aktiv genom att klicka på en av de oranga cirklarna. | ![Radio detaljer](/images/SRS/SRS_Radio_Details.webp) |
+| 7. | Här kan du ändra vilken volym en radio har via slidern i botten, ändra freqvensen genom att klicka på de ovala knapparna ovan och under svara rutan eller ändra kanal genom att klicka på "Ch." fliken. Du kan ändra vilken radio som är aktiv genom att klicka på en av de oranga cirklarna. | ![Radio detaljer](/images/SRS/SRS_Radio_Details.webp) |
 |  | **Detaljer för vilken freqvens, kanal osv du ska använda kommer finnas i brief informationen för eventet.** |  |
 
 

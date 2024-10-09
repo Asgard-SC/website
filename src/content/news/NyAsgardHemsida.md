@@ -7,7 +7,7 @@ tags:
 - "Nyheter"
 - ""
 author: "Nabel"
-published: false
+published: true
 image: "/images/Discord_Banner_4.png"
 ---
 Vi är stolta över att kunna presentera vår nya hemsida! Vi vill rikta ett stort tack till Felix (aka felix-r) som har bidragit med sin tid och expertis för att göra detta möjligt.

@@ -22,15 +22,18 @@ const latestVideos = (await getCollection("videos"))
 const pictureArticles = [
   {
     src: '/images/Logo-ASG_Svart&Vit.png',
-    body: 'Asgard grundades officiellt 2014 av en grupp svenska entusiaster. Sedan dess har vi vuxit till att bli en välorganiserad och aktiv organisation. Vi har regelbundet organiserade aktiviteter och events, samt är aktiva inom det större Star Citizen communityt där vi möter, träffar och sammarbetar med/mot andra Organisationer. <br> <br> Vår ambition är att skapa ett community där spelare med olika intressen inom Star Citizen kan samarbeta för att uppnå gemensama mål, oavsett om det handlar om handel, utforskning, strid eller industriella operationer.',
+    body: '<strong>Asgard</strong><br>Asgard grundades officiellt 2014 av en grupp tidiga backers, sedan dess har vi vuxit till att bli ett aktivt Star Citizen community. Vi har regelbundet organiserade aktiviteter och events, samt är aktiva inom det större Star Citizen communityt där vi möter, träffar och sammarbetar med eller mot andra organisationer. <br> <br> Vår ambition är att skapa ett community där spelare med olika intressen inom Star Citizen kan samarbeta för att uppnå gemensama mål, oavsett om det handlar om handel, utforskning, strid eller industriella operationer.',
+    shadow: false,
   },
   {
     src: '/images/ASG-Avd_Vitt.png',
-    body: '<strong>TYR</strong><br>Vår längst stående avdelning är TYR, det är den militära armen inom Asgard... <br> <br> <strong>IDUN</strong><br>Vi jobbar på att bygga upp vår industriella avdelning IDUN, då mycket utveckling sker i dessa områden idag så gör det en av våra större prioriteringar. Vi ser fram mot att lära oss vad mining, salvaging, trading, hauling osv praktiskt kommer att innebära i the verse.',
+    body: '<strong>TYR</strong><br>Vår äldsta avdelning är TYR, det är den militära avdelningen inom Asgard med målet att skydda våra intressen och tillgångar. För att uppnå det så utnyttjar TYR marktrupper och fordon samt stellära skepp; allt från &quot;fighters&quot; till kapitalskepp. <br> <br> <strong>IDUN</strong><br> Vår industriella avdelning heter IDUN. Målet Idun har är att ta hand om, nyttja och sälja de tillgångar som Asgard besitter och upptäcker. Detta inkluderar allt från &quot;mining&quot;, &quot;salvaging&quot;, transport, produktion till konstruktion. <br> <br> <i>Fler avdelningar kommer att skapas när spelet har &quot;gameplay-loopar&quot; som stödjer dem.</i>',
+    shadow: false,
   },
   {
     src: '/images/Logo-AB_MARS.png',
-    body: '<strong>AB - Aurora Borealis</strong> <br> Aurora Borealis är en nordisk allians bestående av organisationer från Finland, Sverige och Norge. Alliansen bygger på tanken att organisationer från dessa länder kan samarbeta effektivt tack vare vår gemensamma historia och kultur. <br> <br> <strong>Syfte</strong> <br> Syftet med alliansen är att förena nordiska organisationer i strävan efter gemensamma mål. Dessa mål kan inkludera att tillsammans bygga en bas för att skaffa resurser eller att genomföra samarbetsprojekt. <br> <br> <strong>Vision</strong> <br> Alliansen kommer att fungera som en distinkt organisation med egna militära och ekonomiska grenar, och agera som ett kollektiv av medlemsorganisationer.',
+    body: '<strong>AB - Aurora Borealis</strong> <br> Aurora Borealis är en nordisk allians bestående av organisationer från Finland, Norge och Sverige. Alliansen bygger på tanken att organisationer från dessa länder kan samarbeta effektivt tack vare vår gemensamma historia och kultur. <br> <br> <strong>Syfte</strong> <br> Syftet med alliansen är att förena nordiska organisationer i strävan efter gemensamma mål. Det kan innebära allt från att utforska och kolonisera ett territorium till att bygga ett gemensamt militärt försvar. <br> <br> <strong>Vision</strong> <br> Alliansen kommer att fungera som en distinkt organisation med egna militära och ekonomiska grenar, och agera som ett kollektiv av medlemsorganisationer.',
+    shadow: false,
   }
 ];
 const { youtube } = links;
@@ -43,7 +46,7 @@ const { youtube } = links;
         <div class="mt-32 lg:mt-0 h-64 lg:h-96 px-8 text-white flex flex-col justify-start">
           <CommonTyping class="w-full h-fit my-8 text-6xl lg:text-8xl font-light" passive={false} duration={80} tag="h1" string="Välkommen" />
           <p class="animate-[slide-up_400ms_ease_900ms_1_backwards]">
-            Asgard är en aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans.
+            Asgard är ett aktivt, svenskt Star Citizen gaming-community. Vi utforskar, erövrar och tar del av spelets alla möjligheter, samtidigt som vi satsar stort på att utveckla en stark industriell och ekonomisk närvaro. Vårt mål är att skapa en välkomnande gemenskap där varje medlem känner sig hemma, så att vi kan bygga ett dynamiskt och stödjande community där alla kan bidra och växa tillsammans.
           </p>
         </div>
       </div>
@@ -65,13 +68,16 @@ const { youtube } = links;
     <HomeNews class="block lg:hidden mt-16" news={latestNews} stagger={false} />
     <div>
       <ul class="w-full mt-8 mb-32">
-      {pictureArticles.map(({body, src}, index) => 
+      {pictureArticles.map(({body, src, shadow}, index) => 
         <li class="flex flex-wrap lg:flex-nowrap my-24 gap-8 text-center intersection-node" class:list={[index % 2 === 0 ? 'flex-row lg:text-end' : 'flex-row-reverse lg:text-start']}>
           <div class="w-full my-8 col-[2] flex justify-center items-center">
             <p class="max-w-sm lg:max-w-full" set:html={body} />
           </div>
           <div class="w-full flex justify-center items-center">
-            <img class="rounded-lg max-w-96 lg:max-w-full shadow-lg" src={src} />
+            <img class="rounded-lg max-w-96 lg:max-w-full" class:list={{
+              'shadow-lg': shadow,
+              'shadow-none': !shadow,
+            }} src={src} />
           </div>
         </li>
       )}

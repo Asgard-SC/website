@@ -1,14 +1,14 @@
 ---
 date: "2024-10-19"
 title: "Välkommen till vår nya hemsida!"
-summary: "Summary: Vi lanserar en nya hemsida för Asgard, håll ett öga här för att se nyheter på vad vi gör och för information om vilka vi är."
-description: "Description: Vi lanserar en nya hemsida för Asgard, håll ett öga här för att se nyheter på vad vi gör och för information om vilka vi är."
+summary: "Vi lanserar en nya hemsida för Asgard, håll ett öga här för att se nyheter på vad vi gör och för information om vilka vi är."
+description: "Vi lanserar en nya hemsida för Asgard, håll ett öga här för att se nyheter på vad vi gör och för information om vilka vi är."
 tags:
 - "Nyheter"
 - ""
 author: "Nabel"
 published: true
-image: "/images/Discord_Banner_4.png"
+image: "/images/Backgrounds/ASG_DiscordBanner.webp"
 ---
 Vi är stolta över att kunna presentera vår nya hemsida! Vi vill rikta ett stort tack till Felix (aka felix-r) som har bidragit med sin tid och expertis för att göra detta möjligt.
 

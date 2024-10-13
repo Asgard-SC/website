@@ -8,6 +8,6 @@ tags:
 - "CitizenCon"
 author: "Nabel"
 published: false
-image: "/images/starcitizen-citzencon-main-background.png"
+image: "/images/Backgrounds/CitizenCon-MainBackground.webp"
 ---
 [Officiell CitizenCon Info](https://robertsspaceindustries.com/citizencon)

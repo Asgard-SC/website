@@ -8,7 +8,7 @@ tags:
 - ""
 author: "Nabel"
 published: false
-image: "/images/Asgard_BlockadeRunner.png"
+image: "/images/EventImages/Asgard_BlockadeRunner.webp"
 ---
 Den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet.  
 
@@ -50,7 +50,7 @@ Efter ett långt och intensivt kämpande, där Nine-Tails NPC-skepp sprängdes t
 
 <br>
 
-![GruppBild](/images/Asgard_BlockadeRunnerEventGruppbild.png)
+![GruppBild](/images/EventImages/ScreenShots/Asgard_BlockadeRunnerEventGruppbild.webp)
 <br>
 <br>
 [RSI Comm-link om Blockade Runner](https://robertsspaceindustries.com/comm-link/transmission/19991-Blockade-Runner)

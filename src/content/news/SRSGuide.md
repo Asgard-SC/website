@@ -20,14 +20,16 @@ SRS står för SimpleRadioStandalone och har utveckalts för DCS. SRS är gratis
 
 Vi har anpassat SRS för våra behov i Asgard.
 
+[[TOC]]
+
 ## Installation & kom igång
 Vi har en preppad installation av SRS för att komma igång snabbare, du hittar den och vår server information på vår dedikerade discord tråd: [Asgard Discord SRS Tråd](https://discord.com/channels/308968482480062464/1162392609554174114)
 
 
-1. Ladda ner ASG_SRS.zip från **Discord SRS Tråden**  
-2. Packa upp ASG_SRS.zip
+1. Ladda ner **ASG_SRS.zip** från [Asgard Discord SRS Tråd](https://discord.com/channels/308968482480062464/1162392609554174114)  
+2. Packa upp **ASG_SRS.zip**
 3. Starta SRS via **SR-ClientRadio.exe**
-4. Verifiera att server detaljerna stämmer överens, att EAM coalition password är inmatat och ditt Nickname står under EAM Name.  
+4. Verifiera att server detaljerna stämmer med infon i Discord SRS tråden samt att **EAM coalition password** och **EAM name** (Ditt Discord Nickname) är inmatat.  
 ![Startad klient](/images/SRS/SRS_General.webp)  
 
 5. Klicka **Connect** och **connect external awacs mode (eam)**. Du ska nu se att VoIP och Game längst ner i fönstret lyser grönt.  
@@ -35,12 +37,11 @@ Vi har en preppad installation av SRS för att komma igång snabbare, du hittar 
 
 6. Klicka **toggle radio overlay** för att sätta upp kanaler. Nu ser du ett grått fönster med fem identiska sektioner, dessa simulerar var sin radio.  
 ![Radio inställningar](/images/SRS/SRS_Radio.webp)  
-
-7. Här kan du:  
-   1. Ändra volym en radio har via slidern i botten
-   2. Ändra freqvens genom att klicka på de ovala knapparna ovan och under svara rutan
-   3. Ändra kanal genom att klicka på "Ch." fliken. 
-   4. Du kan ändra vilken radio som är aktiv genom att klicka på en av de oranga cirklarna.  
+Här kan du:  
+   1. Ändra Frekvens genom att klicka på de ovala knapparna ovan och under svara frekvens rutan. 
+   2. Ändra kanal genom att klicka på "Ch." fliken och välja i listan. 
+   3. Du kan ändra vilken radio som är aktiv genom att klicka på en cirkel (Grön/Orange) till höger om svarta frekvens rutan.  
+   4. Ändra volym på individuella radios via slidern i botten.  
 ![Radio detaljer](/images/SRS/SRS_Radio_Details.webp)  
 
 **Detaljer för vilken freqvens, kanal osv du ska använda kommer finnas i brief informationen för eventet.**
@@ -56,5 +57,8 @@ För att hjälpa identifiera vilken grupp/radio som ljud kommer ifrån (speciell
 ![Radio detaljer](/images/SRS/SRS_Settings_Audio.webp)
 
 ### Ljud Effekter 
-Det finns ljud-effekter (för radio-simulering) i SRS som kan vara störande, här kan du stänga av det.  
+Det finns ljud-effekter (för radio-simulering) i SRS som kan vara störande, här kan du stänga av det. *Jag kan rekommendera att kopiera inställningarna från bilden under.*  
 ![Radio detaljer](/images/SRS/SRS_Settings_Effects.webp)
+
+## Riktlinjer för hur vi pratar i SRS
+På vår Discord server så har vi en en tråd om: [SOP för kommunikation struktur och standarder](https://discord.com/channels/308968482480062464/1162392609554174114)  

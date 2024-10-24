@@ -1,6 +1,6 @@
 ---
-date: "2024-10-12"
-title: "Star Citizens Farligaste Räddare"
+date: "2024-10-24"
+title: "Tre Organisationer: Star Citizens Farligaste Räddare"
 summary: "När vi mötte MARS och 7Hills i ett alla mot alla event på Dupree så fick vi besök från GriefNet och Shadow Moses."
 description: "När vi mötte MARS och 7Hills i ett alla mot alla event på Dupree så fick vi besök från GriefNet och Shadow Moses."
 tags:
@@ -8,9 +8,12 @@ tags:
 - "Mars"
 - "7Hills"
 author: "Zemion"
-published: false
+published: true
 image: "/images/EventImages/StarCitizensMostDangerousSavior/StarCitizenFarligasteRaddare.webp"
 ---
+
+Video från Eventet:
+[![https://youtu.be/SzBC2BsI2JQ?si=GR00c-Lj3r29Bpc9](/images/VideoThumbnails/1vs1vs1.webp)](https://youtu.be/SzBC2BsI2JQ?si=GR00c-Lj3r29Bpc9)
 
 Vi bjöd in våra vänner från 7Hills och vår allierade finska organisation MARS, till ett Org vs Org vs Org-markstridsevent. Målet var att erövra distribution center Dupree Industrial Manufacturing, En free for all där den organisation som stod sist kvar som segrare.  
 Alla organisationer hade samlats på Everus Harbor, fullt utrustade med armor och vapen. Vi var redo för den första rundan. Men när jag bjöd in de sista av mina medlemmar lade jag märke till något oroväckande i serverlistan – några namn fick mig att tveka: GN-1140-CP. Och det fanns inte bara en, utan tre sådana namn. Vi undersökte vidare kunde se andra namn som var ökända och associerade med akronymen GN.  

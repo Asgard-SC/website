@@ -61,4 +61,7 @@ Det finns ljud-effekter (för radio-simulering) i SRS som kan vara störande, h�
 ![Radio detaljer](/images/SRS/SRS_Settings_Effects.webp)
 
 ## Riktlinjer för hur vi pratar i SRS
-På vår Discord server så har vi en en tråd om: [SOP för kommunikation struktur och standarder](https://discord.com/channels/308968482480062464/1162392609554174114)  
+På vår Discord server så har vi en en tråd om: [SOP för kommunikation struktur och standarder](https://discord.com/channels/308968482480062464/1295111794679087115)  
+
+
+*Mackan was here*

@@ -22,9 +22,11 @@ Cheat-sheet:
 *kursiv text*  
 **fet text**  
 
-
 Linje
 ---
+
+Rad brytning
+<br>
 
 Punkt lista:
 - punkt ett

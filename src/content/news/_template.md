@@ -38,6 +38,8 @@ Punkt lista:
 
 ["Snygg" url](https://asgard.sc)
 
+![Bildnamn](/images/banner.webp)
+
 En multiplikationstabell tabell:
 | **x** | 1 | 2 |
 |--|--|--|

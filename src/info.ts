@@ -1,7 +1,7 @@
 export const links = {
   discord:   {
     label: 'Discord',
-    url: 'https://discord.gg/ZVzmhzQAZ6'
+    url: 'https://discord.gg/H2Tj7C9CP2'
   },
   twitch: {
     label: 'Twitch',
@@ -9,7 +9,7 @@ export const links = {
   },
   youtube: {
     label: 'YouTube',
-    url: 'https://www.youtube.com/channel/UCSnHzDo2QJmOdnJ-z0taUgw'
+    url: 'https://www.youtube.com/@asgard-sc'
   },
   facebook: {
     label: 'Facebook',

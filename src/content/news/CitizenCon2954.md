@@ -7,7 +7,7 @@ tags:
 - "Nyheter"
 - "CitizenCon"
 author: "Nabel"
-published: false
+published: true
 image: "/images/Backgrounds/CitizenCon-MainBackground.webp"
 ---
-[Officiell CitizenCon Info](https://robertsspaceindustries.com/citizencon)
+[Officiell CitizenCon Info](https://robertsspaceindustries.com/citizencon) <br><br>

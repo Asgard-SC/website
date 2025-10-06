@@ -1,5 +1,5 @@
 ---
-date: "2024-09-21"
+date: "2024-10-21"
 title: "Blockade Runner"
 summary: "Eventet Blockade Runner har varit i full gång i Star Citizen, där den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet."
 description: "Eventet Blockade Runner har varit i full gång i Star Citizen, där den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet."

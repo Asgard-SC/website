@@ -7,7 +7,7 @@ tags:
 - "Nyheter"
 - ""
 author: "Nabel"
-published: false
+published: true
 image: "/images/EventImages/Asgard_BlockadeRunner.webp"
 ---
 Den kriminella organisationen Nine-Tails blockerar fri handel runt flera stationer i Stanton-systemet.  
